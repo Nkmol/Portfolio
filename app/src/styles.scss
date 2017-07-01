@@ -1,2 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
+
+html {
+    background: url("assets/images/background.png") no-repeat center center fixed; 
+    height: 100%;
+    background-size: cover;
+}
+
+body {
+    background: none;
+}
