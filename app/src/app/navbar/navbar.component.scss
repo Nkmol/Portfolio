@@ -32,26 +32,26 @@ nav {
         &.active {
             // border-bottom: 2px solid #0dadb7;
 
-            &::before {
-                content: "";
-                position: absolute;
-                width: 0;
-                height: 0;
-                top: 50%;
-                left: 0;
-                border-style: solid;
-                border-width: 10px 0 10px 10px;
-                border-color: transparent transparent transparent #fa6b4b;
-                transform: translateY(-50%);
+            // &::before {
+            //     content: "";
+            //     position: absolute;
+            //     width: 0;
+            //     height: 0;
+            //     top: 50%;
+            //     left: 0;
+            //     border-style: solid;
+            //     border-width: 10px 0 10px 10px;
+            //     border-color: transparent transparent transparent #fa6b4b;
+            //     transform: translateY(-50%);
 
-                @include media-breakpoint-up(lg) {
-                    border-width: 10px 10px 0 10px;
-                    border-color: #fa6b4b transparent transparent transparent;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    top: 0;
-                }
-            }
+            //     @include media-breakpoint-up(lg) {
+            //         border-width: 10px 10px 0 10px;
+            //         border-color: #fa6b4b transparent transparent transparent;
+            //         left: 50%;
+            //         transform: translateX(-50%);
+            //         top: 0;
+            //     }
+            // }
 
             a {
                 color: rgba(255, 255, 255, 0.9);
@@ -72,10 +72,22 @@ nav {
         }
     }
 
-    ul:hover {
-        #navSelectBar {
-            transform: scaleX(1);
-        }
+    #navClickArrow {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent transparent transparent #fa6b4b;
+        transform: translateX(-50%);
+        border-width: 10px 10px 0 10px;
+        border-color: #fa6b4b transparent transparent transparent;
+        top: 0;
+
+        $animation-duration: 0.2s;
+        $animation-function: ease-out;
+        @include transition(
+            left $animation-duration $animation-function
+        );
     }
 
     #navSelectBar {
@@ -92,5 +104,11 @@ nav {
             width $animation-duration $animation-function, 
             left $animation-duration $animation-function
         );
+    }
+
+    ul:hover {
+        #navSelectBar {
+            transform: scaleX(1);
+        }
     }
 }

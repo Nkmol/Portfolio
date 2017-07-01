@@ -6,7 +6,8 @@ import { Component, OnInit, QueryList, ElementRef, ViewChildren, ViewChild, Rend
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  @ViewChild ('action') elAction : ElementRef;
+  @ViewChild ('hoverAction') elHoverAction : ElementRef;
+  @ViewChild ('clickAction') elClickAction : ElementRef;
 
   constructor(private renderer : Renderer2) { }
 
@@ -14,11 +15,16 @@ export class NavbarComponent implements OnInit {
   }
 
   moveHoverElement(el : HTMLElement) {
-    let elRef = new ElementRef(el);
+    let nativeActionEl = this.elHoverAction.nativeElement;
 
-    let nativeActionEl = this.elAction.nativeElement;
     this.renderer.setStyle(nativeActionEl, 'left', el.offsetLeft.toString() + 'px');
     this.renderer.setStyle(nativeActionEl, 'width', el.clientWidth.toString() + 'px');
   }
 
+  moveClickElement(el : HTMLElement) {
+    let nativeActionEl = this.elClickAction.nativeElement;
+    let left = el.offsetLeft + el.offsetWidth / 2;
+
+    this.renderer.setStyle(nativeActionEl, 'left', left.toString() + 'px');
+  }
 }
