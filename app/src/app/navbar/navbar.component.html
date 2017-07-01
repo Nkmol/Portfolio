@@ -6,18 +6,18 @@
     <a class="navbar-brand" href="#">Portfolio</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul #containerTrigger class="navbar-nav mr-auto">
-            <li class="nav-item active">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" (mouseover)="moveHoverElement($event.currentTarget)">
                 <a class="nav-link" href="#">Projects</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" (mouseover)="moveHoverElement($event.currentTarget)">
                 <a class="nav-link" href="#">Skills</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" (mouseover)="moveHoverElement($event.currentTarget)">
                 <a class="nav-link" href="#">Contact</a>
             </li>
+
+            <div #action id="navSelectBar"></div>
         </ul>
     </div>
-
-    <div id="nav-select-bar"></div>
 </nav>

@@ -24,6 +24,7 @@
   "directive-class-suffix": [true, "Directive"],
   "templates-use-public": true,
   "no-access-missing-member": true,
-  "invoke-injectable": true
+  "invoke-injectable": true,
+  "no-unused-variable": true
   }
 }

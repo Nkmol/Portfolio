@@ -3,6 +3,7 @@
 $nav-border-width: 2px;
 
 nav {
+    position: relative;
     border-style: solid;
     border-color: #fa6b4b;
 
@@ -29,7 +30,7 @@ nav {
         padding: 0;
 
         &.active {
-            border-bottom: 2px solid #0dadb7;
+            // border-bottom: 2px solid #0dadb7;
 
             &::before {
                 content: "";
@@ -69,5 +70,27 @@ nav {
                 color: rgba(255, 255, 255, 0.7);
             }
         }
+    }
+
+    ul:hover {
+        #navSelectBar {
+            transform: scaleX(1);
+        }
+    }
+
+    #navSelectBar {
+        position: absolute;
+        background-color: #0dadb7;
+        height: 2px;
+        bottom: 0;
+        transform: scaleX(0);
+
+        $animation-duration: 0.2s;
+        $animation-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+        @include transition(
+            transform $animation-duration, 
+            width $animation-duration $animation-function, 
+            left $animation-duration $animation-function
+        );
     }
 }
