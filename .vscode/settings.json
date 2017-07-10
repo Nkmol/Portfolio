@@ -1,0 +1,6 @@
+// Place your settings in this file to overwrite default and user settings.
+{    
+    "sasslint.resolvePathsRelativeToConfig": true,
+    "tslint.configFile": "app/tslint.json",
+    "tslint.nodePath": "app/node_modules"
+}
