@@ -10,6 +10,6 @@ function _window(): any {
 @Injectable()
 export class WindowRef {
   matchMedia(query : string) : MediaQueryList {
-      return _window().mediaQuery(query);
+      return _window().matchMedia(query);
   }
 }

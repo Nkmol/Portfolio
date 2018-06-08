@@ -16,18 +16,14 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   private mediaQueryList : MediaQueryList;
   public isCollapsed : Boolean = true;
 
-  public unlistenArray = [];
-
-  constructor(private renderer : Renderer2, private customRenderer : Renderer2Custom, private window : WindowRef) { }
+  constructor(private renderer : Renderer2, private windowRef : WindowRef) { }
 
   ngOnInit() {
-    this.mediaQueryList = window.matchMedia("(max-width: 991px)");
+    this.mediaQueryList = this.windowRef.matchMedia("(max-width: 991px)");
   }
 
   // After "ViewChild" has been inited
   ngAfterViewInit() {
-    // Extend custom Renderer2 with an listen(element, events[]) interface
-    // Extend custom Renderer2 with an unlisten(element, [events[]]) interface. Removes all when no events specified
     this.mediaQueryList.addListener(this.resetOrientationElements.bind(this));
   }
 
@@ -66,64 +62,5 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     this.renderer.removeAttribute(this.elClickAction.nativeElement, "style");
 
     this.moveClickElement(this.elLastClickedNavLink);
-  }
-
-  ngbToggleCollapseAnimation() {
-    let transitionEvents = "webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend".split(' ');
-    this.unlistenArray = this.customRenderer.on(this.elCollapse.nativeElement, transitionEvents, this.complete.bind(this))
-
-    if(this.isCollapsed) {
-      this.show();
-    } 
-    else {
-      this.hide();
-    }
-  }
-
-  show() {
-    if(!this.isCollapsed)
-      return;
-
-    let nativeEl = this.elCollapse.nativeElement;
-
-    this.renderer.removeClass(nativeEl, "collapse");
-    this.renderer.addClass(nativeEl, "collapsing");
-
-    this.renderer.setStyle(nativeEl, "height", `${nativeEl["scrollHeight"]}px`);
-    console.log("collapsing");
-  }
-
-  complete(event) {
-    console.log("show = " + this.isCollapsed);
-    let nativeEl = this.elCollapse.nativeElement;
-
-    if(this.isCollapsed) {
-      this.renderer.removeClass(nativeEl, "collapsing");
-      this.renderer.addClass(nativeEl, "show");
-      this.renderer.addClass(nativeEl, "collapse");
-
-      this.isCollapsed = false;
-    }
-    else {
-      this.renderer.removeClass(nativeEl, "collapsing");
-      this.renderer.addClass(nativeEl, "collapse");
-
-      this.isCollapsed = true;
-    }
-
-    this.unlistenArray.forEach(event => event());
-  }
-
-  hide() {
-    if(this.isCollapsed)
-      return;
-
-    let nativeEl = this.elCollapse.nativeElement;
-    
-    this.renderer.addClass(nativeEl, "collapsing");
-    this.renderer.removeClass(nativeEl, "show");
-    this.renderer.removeClass(nativeEl, "collapse");
-
-    this.renderer.setStyle(nativeEl, "height", '')
   }
 }
