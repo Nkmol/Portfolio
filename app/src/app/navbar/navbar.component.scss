@@ -1,0 +1,125 @@
+@import "src/app/shared/styles/base.bootstrap";
+@import "src/app/shared/styles/shared";
+
+$nav-border-width: 2px;
+
+nav {
+    position: relative;
+    border-style: solid;
+    border-color: #fa6b4b;
+
+    border-width: 0 0 0 $nav-border-width;
+
+    background-color: rgba(244, 244, 241, 0.38);
+    padding: 1rem 0;
+    align-items: stretch;
+
+    @include media-breakpoint-up(lg) {
+        border-width: $nav-border-width 0 0 0;
+        padding: 0 1rem;
+    }
+
+    // navbar-collapse--show
+    .show {
+        @at-root nav {
+            padding-bottom: 0;
+        }
+    }
+
+    button {
+        @include absolute-center-y();
+    }
+
+    .navbar-brand {
+        position: relative;
+        color: rgba(255, 255, 255, 0.9);
+        padding: 1em 1em;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 0;
+
+        &.active {
+            a {
+                color: rgba(255, 255, 255, 0.9);
+
+                &:hover {
+                    color: rgba(255, 255, 255, 1);
+                }
+            }
+        }
+
+        a {
+            color: rgba(255, 255, 255, 0.5);
+            padding: 1em 1em;
+
+            &:hover {
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+    }
+
+    #navClickArrow {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        transform: translateY(-50%);
+
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent #fa6b4b;
+        left: 0;
+
+        $animation-duration: 0.2s;
+        $animation-function: ease-out;
+        @include transition(
+            left $animation-duration $animation-function,
+            top $animation-duration $animation-function
+        );
+
+        @include media-breakpoint-up(lg) {
+            top: 0;
+            border-width: 10px 10px 0 10px;
+            border-color: #fa6b4b transparent transparent transparent;
+            transform: translateX(-50%);
+        }
+    }
+
+    #navSelectBar {
+        $size: 2px;
+
+        position: absolute;
+        background-color: #0dadb7;
+
+        // height: 2px;
+        // bottom: 0;
+        // transform: scaleX(0);
+        transform: scaleY(0);
+        width: $size;
+        right: 0;
+
+        $animation-duration: 0.2s;
+        $animation-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+        @include transition(
+            transform $animation-duration, 
+            width $animation-duration $animation-function, 
+            left $animation-duration $animation-function,
+            top $animation-duration $animation-function
+        );
+
+        @include media-breakpoint-up(lg) {
+            bottom: 0;
+            transform: scaleX(0);
+            height: $size;
+        }
+    }
+
+    ul:hover {
+        #navSelectBar {
+            transform: scaleX(1);
+        }
+    }
+}

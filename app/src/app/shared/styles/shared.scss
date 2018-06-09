@@ -1,0 +1,7 @@
+@import "src/app/shared/styles/base.bootstrap";
+
+@mixin absolute-center-y() {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
