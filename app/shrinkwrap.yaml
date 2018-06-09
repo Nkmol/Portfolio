@@ -9,7 +9,7 @@ dependencies:
   '@angular/platform-browser-dynamic': 6.0.4
   '@angular/platform-server': 6.0.4
   '@angular/router': 6.0.4
-  '@ng-bootstrap/ng-bootstrap': 1.1.2
+  '@ng-bootstrap/ng-bootstrap': 2.1.0
   bootstrap: 4.1.1
   core-js: 2.5.7
   jquery: 3.3.1
@@ -18,10 +18,15 @@ dependencies:
   tether: 1.4.4
   zone.js: 0.8.26
 devDependencies:
+  '@angular-devkit/architect': 0.6.8
   '@angular-devkit/build-angular': 0.6.8
+  '@angular-devkit/core': 0.6.8
+  '@angular-devkit/schematics': 0.6.8
   '@angular/cli': 6.0.8
   '@angular/compiler-cli': 6.0.4
-  '@angular/language-service': 4.4.7
+  '@angular/language-service': 6.0.4
+  '@schematics/angular': 0.6.8
+  '@schematics/update': 0.6.8
   '@types/jasmine': 2.8.8
   '@types/node': 10.3.2
   codelyzer: 4.3.0
@@ -58,7 +63,7 @@ packages:
       '@angular-devkit/core': 0.6.8
       '@ngtools/webpack': /@ngtools/webpack/6.0.8/webpack@4.8.3
       ajv: 6.4.0
-      autoprefixer: 8.6.1
+      autoprefixer: 8.6.2
       cache-loader: /cache-loader/1.2.2/webpack@4.8.3
       chalk: 2.2.2
       circular-dependency-plugin: /circular-dependency-plugin/5.0.2/webpack@4.8.3
@@ -232,10 +237,10 @@ packages:
       rxjs: ^6.0.0
     resolution:
       integrity: sha512-bq7cS0/5hM3Af3FolEe7HpKP19/7MJWIPGi5k9rYCGM4dXKFiKa+LA/SbXE0DMiKxhAQbZDwQ9HN04r70DRyBQ==
-  /@angular/language-service/4.4.7:
+  /@angular/language-service/6.0.4:
     dev: true
     resolution:
-      integrity: sha512-wUTH1+B1L/bcROduWH/asEpTwx3myQXueqfA5S+JCtR58PZD/OCjnY3rIzei2oxb8MIprhFV0xGl4r8v7fSmDw==
+      integrity: sha512-LyFh/sFtnyjJJYO5UKM31nGSSkmGYFMwqzwbG+l0QNQXNoa9jj+OApvu0oOY5F0WP9DBrOAzj74j2M5olprtMQ==
   /@angular/platform-browser-dynamic/6.0.4:
     dependencies:
       tslib: 1.9.2
@@ -284,14 +289,15 @@ packages:
       rxjs: ^6.0.0
     resolution:
       integrity: sha512-IKUtbbRtHN8I+Hp8/pLqBPyXJmQHrPFGzKU3H43TovD++mmT5AaYVCeJgkGUB//wjtLN3y0X/yrmyWFWcN35Gw==
-  /@ng-bootstrap/ng-bootstrap/1.1.2:
+  /@ng-bootstrap/ng-bootstrap/2.1.0:
     dev: false
     peerDependencies:
-      '@angular/common': ^5.0.2
-      '@angular/core': ^5.0.2
-      '@angular/forms': ^5.0.2
+      '@angular/common': ^6.0.0
+      '@angular/core': ^6.0.0
+      '@angular/forms': ^6.0.0
+      rxjs: ^6.0.0
     resolution:
-      integrity: sha512-lPB4WdFk3s4k1OMKiZsmbxSE3r8qBFapov0HudEVi8HYkm6LBxZmWqy9I6KAC9NnhVUVIYnCixvRSNwOQvIwwA==
+      integrity: sha512-ElqT/uayvnAbA9Klt0IZSbQ+BZtyEPdGDGojmYWQEFDNmTmismkM9Cohx4Hy6PakGAItCy7Ghu1isR8ZKkdtnw==
   /@ngtools/webpack/6.0.8/webpack@4.8.3:
     dependencies:
       '@angular-devkit/core': 0.6.8
@@ -683,6 +689,12 @@ packages:
       ajv: '>=4.10.0'
     resolution:
       integrity: sha1-MU3QpLM2j609/NxU7eYXG4htrzw=
+  /ajv-keywords/3.2.0:
+    dev: true
+    peerDependencies:
+      ajv: ^6.0.0
+    resolution:
+      integrity: sha1-6GuBnGAs+IIa1jdBNpjx3sAhhHo=
   /ajv-keywords/3.2.0/ajv@6.5.0:
     dependencies:
       ajv: 6.5.0
@@ -1013,7 +1025,7 @@ packages:
       node: '>= 4.5.0'
     resolution:
       integrity: sha1-ri1acpR38onWDdf5amMUoi3Wwio=
-  /autoprefixer/8.6.1:
+  /autoprefixer/8.6.2:
     dependencies:
       browserslist: 3.2.8
       caniuse-lite: 1.0.30000851
@@ -1023,7 +1035,7 @@ packages:
       postcss-value-parser: 3.3.0
     dev: true
     resolution:
-      integrity: sha512-DqvyCbff+kvfrZgoDHIRK28svWSSFE/Y86FXUd9zflJ+aU7rr+6JCSuhNf1evSPzh+42GdI39BuIjixN5W/EPQ==
+      integrity: sha512-cv9v1mYYBcAnZq4MHseJ9AIdjQmNahnpCpPO46oTkQJS2GggsBp2azHjNpAuQ95Epvsg+AIsyjYhfI9YwFxGSA==
   /aws-sign2/0.6.0:
     dev: true
     optional: true
@@ -7012,8 +7024,8 @@ packages:
     dependencies:
       chalk: 2.4.1
       optimist: 0.6.1
-      tslint: /tslint/5.10.0/typescript@2.9.1
-      tsutils: /tsutils/2.27.1/typescript@2.9.1
+      tslint: 5.10.0
+      tsutils: 2.27.1
       typescript: 2.9.1
     dev: true
     resolution:
@@ -7117,7 +7129,7 @@ packages:
   /schema-utils/0.4.5:
     dependencies:
       ajv: 6.5.0
-      ajv-keywords: /ajv-keywords/3.2.0/ajv@6.5.0
+      ajv-keywords: 3.2.0
     dev: true
     engines:
       node: '>= 4.8.0 || >= 6.9.0 || >= 8.9.0'
@@ -8139,29 +8151,6 @@ packages:
       typescript: '>=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev'
     resolution:
       integrity: sha1-EeJrzLiK+gLdDZlWyuPUVAtfVMM=
-  /tslint/5.10.0/typescript@2.9.1:
-    dependencies:
-      babel-code-frame: 6.26.0
-      builtin-modules: 1.1.1
-      chalk: 2.4.1
-      commander: 2.15.1
-      diff: 3.5.0
-      glob: 7.1.2
-      js-yaml: 3.12.0
-      minimatch: 3.0.4
-      resolve: 1.7.1
-      semver: 5.5.0
-      tslib: 1.9.2
-      tsutils: /tsutils/2.27.1/typescript@2.9.1
-      typescript: 2.9.1
-    dev: true
-    engines:
-      node: '>=4.8.0'
-    id: registry.npmjs.org/tslint/5.10.0
-    peerDependencies:
-      typescript: '>=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev'
-    resolution:
-      integrity: sha1-EeJrzLiK+gLdDZlWyuPUVAtfVMM=
   /tsscmp/1.0.5:
     dev: true
     engines:
@@ -8173,16 +8162,6 @@ packages:
     dependencies:
       tslib: 1.9.2
     dev: true
-    peerDependencies:
-      typescript: '>=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >= 3.0.0-dev'
-    resolution:
-      integrity: sha512-AE/7uzp32MmaHvNNFES85hhUDHFdFZp6OAiZcd6y4ZKKIg6orJTm8keYWBhIhrJQH3a4LzNKat7ZPXZt5aTf6w==
-  /tsutils/2.27.1/typescript@2.9.1:
-    dependencies:
-      tslib: 1.9.2
-      typescript: 2.9.1
-    dev: true
-    id: registry.npmjs.org/tsutils/2.27.1
     peerDependencies:
       typescript: '>=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >= 3.0.0-dev'
     resolution:
@@ -8713,7 +8692,7 @@ packages:
       acorn: 5.6.2
       acorn-dynamic-import: 3.0.0
       ajv: 6.5.0
-      ajv-keywords: /ajv-keywords/3.2.0/ajv@6.5.0
+      ajv-keywords: 3.2.0
       chrome-trace-event: 1.0.0
       enhanced-resolve: 4.0.0
       eslint-scope: 3.7.1
@@ -9033,7 +9012,10 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 7
 shrinkwrapVersion: 3
 specifiers:
+  '@angular-devkit/architect': ^0.6.8
   '@angular-devkit/build-angular': ^0.6.8
+  '@angular-devkit/core': ^0.6.8
+  '@angular-devkit/schematics': ^0.6.8
   '@angular/animations': ^6.0.4
   '@angular/cli': ^6.0.8
   '@angular/common': ^6.0.4
@@ -9042,12 +9024,14 @@ specifiers:
   '@angular/core': ^6.0.4
   '@angular/forms': ^6.0.4
   '@angular/http': ^6.0.4
-  '@angular/language-service': ^4.4.7
+  '@angular/language-service': ^6.0.4
   '@angular/platform-browser': ^6.0.4
   '@angular/platform-browser-dynamic': ^6.0.4
   '@angular/platform-server': ^6.0.4
   '@angular/router': ^6.0.4
-  '@ng-bootstrap/ng-bootstrap': ^1.0.0-alpha.26
+  '@ng-bootstrap/ng-bootstrap': ^2.1.0
+  '@schematics/angular': ^0.6.8
+  '@schematics/update': ^0.6.8
   '@types/jasmine': ^2.8.8
   '@types/node': ^10.3.2
   bootstrap: ^4.0.0-alpha.6
@@ -9066,7 +9050,7 @@ specifiers:
   rxjs: ^6.2.0
   rxjs-compat: ^6.2.0
   rxjs-tslint: ^0.1.4
-  sass-lint: ^1.10.2
+  sass-lint: ^1.12.1
   tether: ^1.4.0
   ts-node: ~3.0.4
   tslint: ^5.10.0
